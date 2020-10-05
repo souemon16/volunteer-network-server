@@ -57,7 +57,7 @@ client.connect(err => {
   })
 
   app.delete('/delete/:id', (req, res) => {
-    volunteerList.deleteOne({_id: ObjectId(req.params.id)})
+    volunteerList.deleteOne({_id: ObjectId(req.params._id)})
     .then((err, result) => {
       console.log(result)
     })
@@ -69,6 +69,4 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT || port)
