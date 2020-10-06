@@ -65,15 +65,16 @@ client.connect(err => {
             })
     })
 
+    // Delete One Data from DB 
     app.delete('/deleteUser/:id', (req, res) => {
         console.log(req.params.id);
-        volunteerList.deleteOne({ _id: objectId(req.params.id) })
+        volunteerList.deleteOne({ _id: ObjectId(req.params.id) })
         .then((result) => {
           res.send(result.deletedCount > 0);
         });
     })
 
-
+     // Delete One Data from DB 
     app.delete('/delete/:id', (req, res) => {
         console.log(req.params.id)
         volunteerList.deleteOne({ id: ObjectId(req.params.id) })
